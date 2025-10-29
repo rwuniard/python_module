@@ -1,10 +1,13 @@
 [project]
 name = "rw_math"
-version = "0.1.0"
+version = "0.1.1"
 description = "Test to upload math module to Pypi"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
     "pytest>=8.4.2",
     "pytest-cov>=7.0.0",
 ]
