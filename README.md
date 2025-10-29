@@ -28,6 +28,39 @@ Or with uv:
 uv add rw_math
 ```
 
+**Important: Package vs. Module Naming**
+
+Understanding the difference between package name and module name is crucial:
+
+1. **Package Name** (what you install): `rw_math`
+   - This is the name in `pyproject.toml`
+   - When you run `uv add rw_math`, uv normalizes it to `rw-math` in your dependencies
+   - This normalization is automatic and follows [PEP 503](https://peps.python.org/pep-0503/)
+
+2. **Module Name** (what you import): `rwmath`
+   - This is the **folder name** inside `src/`
+   - This is what you use in your code: `from rwmath import add`
+   - Module names cannot have hyphens or underscores when importing
+
+**Example:**
+```toml
+# After running: uv add rw_math
+# Your pyproject.toml will show:
+[project]
+dependencies = [
+    "rw-math",  # ← Note: normalized to hyphen
+]
+```
+
+```python
+# But in your code, you import using the module name (folder name):
+from rwmath import add, sub, mul, div  # ← Uses folder name, no hyphens/underscores
+```
+
+**Summary:**
+- Install with: `rw_math` → becomes `rw-math` in dependencies (automatic)
+- Import with: `rwmath` → the actual module/folder name
+
 ### For Development
 
 ```bash
