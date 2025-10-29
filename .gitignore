@@ -9,3 +9,14 @@ wheels/
 # Virtual environments
 .venv
 .env
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# OS files
+.DS_Store
+
+# PyPI config (contains tokens)
+.pypirc
